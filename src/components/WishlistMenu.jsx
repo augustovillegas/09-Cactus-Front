@@ -1,5 +1,7 @@
 ﻿import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { useShop } from "../context/ShopContext";
 
 export const WishlistMenu = () => {
@@ -54,10 +56,11 @@ export const WishlistMenu = () => {
                 className="flex items-center gap-3 border-b border-gray-100 pb-2"
               >
                 <div className="h-10 w-10 rounded-md bg-gray-100 flex items-center justify-center overflow-hidden">
-                  <img
+                  <LazyLoadImage
                     src={item.image}
                     alt={item.name}
                     className="h-full w-full object-contain"
+                    effect="blur"
                   />
                 </div>
                 <span className="text-xs font-semibold text-gray-800">

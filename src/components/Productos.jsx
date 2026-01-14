@@ -1,4 +1,5 @@
-﻿import React, { useEffect, useMemo, useState } from "react";
+﻿import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Cards } from "./Cards";
 import { products as initialProducts } from "../data/db";
 import { useShop } from "../context/ShopContext";
@@ -22,6 +23,9 @@ const formatPrice = (value) => {
 
 export const Productos = () => {
   const { agregarAlCarrito, alternarDeseos, estaEnDeseos } = useShop();
+  const [searchParams] = useSearchParams();
+  const categoriaParam = searchParams.get("categoria");
+  const categoriaAplicada = useRef(null);
   const [sortBy, setSortBy] = useState("relevance");
   const [currentPage, setCurrentPage] = useState(1);
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -127,6 +131,20 @@ export const Productos = () => {
       window.removeEventListener("keydown", handleEscape);
     };
   }, [filtersOpen]);
+
+  useEffect(() => {
+    if (!categoriaParam) return;
+    if (categoriaAplicada.current === categoriaParam) return;
+
+    setSelectedCategories([categoriaParam]);
+    setSelectedBrands([]);
+    setSelectedColors([]);
+    setPriceMin("");
+    setPriceMax("");
+    setInStockOnly(false);
+    setSortBy("relevance");
+    categoriaAplicada.current = categoriaParam;
+  }, [categoriaParam]);
 
   const itemsPerPage = 9;
   const totalPages = Math.max(1, Math.ceil(filteredProducts.length / itemsPerPage));
@@ -446,4 +464,3 @@ export const Productos = () => {
     </section>
   );
 };
-

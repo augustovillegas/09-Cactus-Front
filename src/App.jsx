@@ -3,6 +3,8 @@ import { Routes, Route, Outlet } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { WhatsApp } from "./components/WhatsApp";
 import { Footer } from "./components/Footer";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { ToTopButton } from "./components/ToTopButton";
 import { Home } from "./pages/Home";
 import { Productos } from "./components/Productos";
 import { Contacto } from "./pages/Contacto";
@@ -16,6 +18,8 @@ const Layout = () => {
     <div>
       <WhatsApp />
       <Navbar />
+      <ScrollToTop />
+      <ToTopButton />
       <Outlet />
       <Footer />
     </div>

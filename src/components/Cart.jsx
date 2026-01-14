@@ -1,4 +1,6 @@
 ﻿import React, { useRef, useEffect, useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { useShop } from "../context/ShopContext";
 
 export const Cart = () => {
@@ -57,10 +59,11 @@ export const Cart = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-md bg-gray-100 flex items-center justify-center overflow-hidden">
-                    <img
+                    <LazyLoadImage
                       src={item.product.image}
                       alt={item.product.name}
                       className="h-full w-full object-contain"
+                      effect="blur"
                     />
                   </div>
                   <div className="flex flex-col">

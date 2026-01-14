@@ -9,7 +9,7 @@ export const products = [
     reviewsCount: 20000,
     colors: ["#000000", "#ffffff"],
     brand: "Apple",
-    category: "Audio",
+    category: "Auriculares",
     inStock: true,
   },
   {
@@ -35,7 +35,7 @@ export const products = [
     reviewsCount: 9800,
     colors: ["#111827", "#facc15"],
     brand: "Cactus",
-    category: "Fundas",
+    category: "Cases",
     inStock: true,
   },
   {
@@ -48,7 +48,7 @@ export const products = [
     reviewsCount: 5200,
     colors: ["#111827"],
     brand: "Cactus",
-    category: "Soportes",
+    category: "Accesorios",
     inStock: false,
   },
   {
@@ -61,7 +61,7 @@ export const products = [
     reviewsCount: 4100,
     colors: ["#ffffff"],
     brand: "Cactus",
-    category: "Protectores",
+    category: "Accesorios",
     inStock: true,
   },
   {
@@ -74,7 +74,7 @@ export const products = [
     reviewsCount: 7600,
     colors: ["#111827", "#ffffff"],
     brand: "Cactus",
-    category: "Fundas",
+    category: "Cases",
     inStock: true,
   },
   {
@@ -139,7 +139,7 @@ export const products = [
     reviewsCount: 3900,
     colors: ["#ffffff"],
     brand: "Cactus",
-    category: "Fundas",
+    category: "Cases",
     inStock: true,
   },
   {
@@ -152,7 +152,7 @@ export const products = [
     reviewsCount: 3100,
     colors: ["#111827", "#ffffff"],
     brand: "JBL",
-    category: "Audio",
+    category: "Auriculares",
     inStock: false,
   },
 ];

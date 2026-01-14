@@ -35,11 +35,12 @@ export const Deseos = () => {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
             {itemsDeseos.map((item) => (
               <Cards
                 key={item.id}
                 variant="catalog"
+                className="min-h-[360px]"
                 imageSrc={item.image}
                 imageAlt={item.name}
                 title={item.name}
