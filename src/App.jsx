@@ -39,7 +39,7 @@ export const App = () => {
                 smooth={true}
                 duration={500}
                 offset={-40}
-                className="flex items-center justify-center mx-auto bg-yellow-500 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-400 hover:scale-105 transition duration-500"
+                className="flex items-center justify-center md:justify-start mx-auto md:mx-0 bg-yellow-500 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-400 hover:scale-105 transition duration-500"
                 style={{ maxWidth: "fit-content" }}
               >
                 <span>Explorar productos</span>
@@ -50,7 +50,7 @@ export const App = () => {
                   effect="blur"
                 />
               </Link>
-              <p className="text-center text-xs text-gray-400 mt-4">
+              <p className="text-center md:text-left text-xs text-gray-400 mt-4">
                 Envío gratis en compras mayores a $50.000
               </p>
             </div>
@@ -332,3 +332,4 @@ export const App = () => {
     </div>
   );
 };
+

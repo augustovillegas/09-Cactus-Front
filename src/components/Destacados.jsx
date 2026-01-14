@@ -1,140 +1,142 @@
 import React from "react";
 import { Cards } from "./Cards";
-import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 export const Destacados = () => {
+  const slides = [
+    {
+      imageSrc: "products/airpods.jpg",
+      imageAlt: "Airpods Pro 2da Gen.",
+      title: "Airpods Pro 2da Gen.",
+      price: "$53,590.00",
+      originalPrice: "$65,550.00",
+      discount: "save 20%",
+      badges: ["Stock ready", "Envio gratis"],
+      onBuyClick: () => console.log("Comprar Airpods"),
+    },
+    {
+      imageSrc: "products/cargador-rapido.jpg",
+      imageAlt: "Cargador R?pido",
+      title: "Cargador R?pido",
+      price: "$33,590.00",
+      originalPrice: "$35,550.00",
+      discount: "save 20%",
+      badges: ["Stock ready", "Official store"],
+      onBuyClick: () => console.log("Comprar Cargador"),
+    },
+    {
+      imageSrc: "products/funda-premium2.jpg",
+      imageAlt: "Funda Premium Magnetic",
+      title: "Funda Premium Magnetic",
+      price: "$15,590.00",
+      originalPrice: "$18,550.00",
+      discount: "save 20%",
+      badges: ["Stock ready", "Official store"],
+      onBuyClick: () => console.log("Comprar Funda"),
+    },
+    {
+      imageSrc: "products/soporte.jpg",
+      imageAlt: "Soporte MagSafe",
+      title: "Soporte p/ MagSafe",
+      price: "$17,590.00",
+      originalPrice: "$22,550.00",
+      discount: "save 20%",
+      badges: ["Stock ready", "Official store"],
+      onBuyClick: () => console.log("Comprar Funda"),
+    },
+  ];
+
   return (
-    <div className="container mx-auto px-4">
+    <div className="mx-auto max-w-[1100px] px-0">
+      <style>{`
+        .destacados-splide .splide__track {
+          padding-bottom: 28px;
+        }
+        .destacados-splide .splide__arrow {
+          background: #000000;
+          border-radius: 9999px;
+          width: 40px;
+          height: 40px;
+          opacity: 1;
+        }
+        .destacados-splide .splide__arrow:hover {
+          background: #4b5563;
+        }
+        .destacados-splide .splide__arrow svg {
+          fill: #ffffff;
+        }
+        .destacados-splide .splide__pagination {
+          position: relative;
+          margin-top: 16px;
+        }
+        .destacados-splide .splide__pagination__page {
+          width: 10px;
+          height: 10px;
+          background: rgba(0, 0, 0, 0.2);
+          opacity: 1;
+        }
+        .destacados-splide .splide__pagination__page.is-active {
+          background: #000000;
+          transform: none;
+        }
+        .destacados-splide .splide__slide {
+          transition: transform 300ms ease, opacity 300ms ease;
+          opacity: 0.7;
+        }
+        .destacados-splide .splide__slide.is-active {
+          transform: scale(1.02);
+          opacity: 1;
+        }
+      `}</style>
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
         Productos Destacados
       </h2>
-      <div className="relative">
-        <Swiper
-          modules={[EffectCoverflow, Navigation, Pagination]}
-          effect="coverflow"
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView="auto"
-          loop={true}
-          coverflowEffect={{
-            rotate: -10,
-            stretch: 70,
-            depth: 150,
-            modifier: 1,
-            slideShadows: false,
-          }}
-          breakpoints={{
-            700: {
-              // A partir de 768px (md), mostrar 3 slides
-              slidesPerView: 3,
-              centeredSlides: false, // Mantener la distribución uniforme
-              spaceBetween: 30, // Espaciado uniforme entre cards
+      <div className="destacados-splide">
+        <Splide
+          options={{
+            type: "loop",
+            focus: "center",
+            perPage: 3,
+            gap: "16px",
+            arrows: true,
+            pagination: true,
+            speed: 600,
+            breakpoints: {
+              768: {
+                perPage: 2,
+                gap: "20px",
+              },
+              640: {
+                perPage: 1,
+                gap: "16px",
+              },
             },
           }}
-          pagination={{
-            clickable: true,
-            el: ".custom-pagination",
-          }}
-          navigation={{
-            nextEl: ".custom-next",
-            prevEl: ".custom-prev",
-          }}
-          className="mySwiper"
+          aria-label="Productos destacados"
         >
-          {/* Slide 1 */}
-          <SwiperSlide className="w-[300px]">
-            <Cards
-              className="shadow-lg rounded-xl transform transition-transform duration-300 hover:scale-105"
-              imageSrc="products/airpods.jpg"
-              imageAlt="Airpods Pro 2da Gen."
-              title="Airpods Pro 2da Gen."
-              price="$53,590.00"
-              originalPrice="$65,550.00"
-              discount="save 20%"
-              badges={["Stock ready", "Envio gratis"]}
-              reviews={{
-                stars: 4.5,
-                count: "20k reviews",
-              }}
-              onBuyClick={() => console.log("Comprar Airpods")}
-            />
-          </SwiperSlide>
-
-          {/* Slide 2 */}
-          <SwiperSlide className="w-[300px]">
-            <Cards
-              className="shadow-lg rounded-xl transform transition-transform duration-300 hover:scale-105"
-              imageSrc="products/cargador-rapido.jpg"
-              imageAlt="Cargador Rápido"
-              title="Cargador Rápido"
-              price="$33,590.00"
-              originalPrice="$35,550.00"
-              discount="save 20%"
-              badges={["Stock ready", "Official store"]}
-              reviews={{
-                stars: 4.5,
-                count: "20k reviews",
-              }}
-              onBuyClick={() => console.log("Comprar Cargador")}
-            />
-          </SwiperSlide>
-
-          {/* Slide 3 */}
-          <SwiperSlide className="w-[300px]">
-            <Cards
-              className="shadow-lg rounded-xl transform transition-transform duration-300 hover:scale-105"
-              imageSrc="products/funda-premium2.jpg"
-              imageAlt="Funda Premium Magnetic"
-              title="Funda Premium Magnetic"
-              price="$15,590.00"
-              originalPrice="$18,550.00"
-              discount="save 20%"
-              badges={["Stock ready", "Official store"]}
-              reviews={{
-                stars: 4.5,
-                count: "20k reviews",
-              }}
-              onBuyClick={() => console.log("Comprar Funda")}
-            />
-          </SwiperSlide>
-
-          {/* Slide 4 */}
-          <SwiperSlide className="w-[300px]">
-            <Cards
-              className="shadow-lg rounded-xl transform transition-transform duration-300 hover:scale-105"
-              imageSrc="products/soporte.jpg"
-              imageAlt="Soporte MagSafe"
-              title="Soporte p/ MagSafe"
-              price="$17,590.00"
-              originalPrice="$22,550.00"
-              discount="save 20%"
-              badges={["Stock ready", "Official store"]}
-              reviews={{
-                stars: 4.5,
-                count: "20k reviews",
-              }}
-              onBuyClick={() => console.log("Comprar Funda")}
-            />
-          </SwiperSlide>
-        </Swiper>
-
-        {/* Flechas de navegación */}
-        <div className="custom-prev absolute top-1/2 left-2 transform -translate-y-1/2 cursor-pointer z-10 bg-black text-white font-bold  w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-gray-600 transition duration-500">
-          &lt;
-        </div>
-        <div className="custom-next absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer z-10 bg-black text-white font-bold w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-gray-600 transition duration-500">
-          &gt;
-        </div>
-
-        {/* Paginación personalizada */}
-        <div className="custom-pagination mt-4 flex justify-center space-x-2"></div>
+          {slides.map((slide, index) => (
+            <SplideSlide key={index}>
+              <div className="flex justify-center">
+                <Cards
+                  className="shadow-lg rounded-xl transform transition-transform duration-300 hover:scale-105"
+                  imageSrc={slide.imageSrc}
+                  imageAlt={slide.imageAlt}
+                  title={slide.title}
+                  price={slide.price}
+                  originalPrice={slide.originalPrice}
+                  discount={slide.discount}
+                  badges={slide.badges}
+                  reviews={{
+                    stars: 4.5,
+                    count: "20k reviews",
+                  }}
+                  onBuyClick={slide.onBuyClick}
+                />
+              </div>
+            </SplideSlide>
+          ))}
+        </Splide>
       </div>
     </div>
   );
