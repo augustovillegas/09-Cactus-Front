@@ -1,51 +1,38 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Cards } from "./Cards";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { products as productos } from "../data/db";
+import { useShop } from "../context/ShopContext";
 
 export const Destacados = () => {
-  const slides = [
-    {
-      imageSrc: "products/airpods.jpg",
-      imageAlt: "Airpods Pro 2da Gen.",
-      title: "Airpods Pro 2da Gen.",
-      price: "$53,590.00",
-      originalPrice: "$65,550.00",
-      discount: "save 20%",
-      badges: ["Stock ready", "Envio gratis"],
-      onBuyClick: () => console.log("Comprar Airpods"),
-    },
-    {
-      imageSrc: "products/cargador-rapido.jpg",
-      imageAlt: "Cargador R?pido",
-      title: "Cargador R?pido",
-      price: "$33,590.00",
-      originalPrice: "$35,550.00",
-      discount: "save 20%",
-      badges: ["Stock ready", "Official store"],
-      onBuyClick: () => console.log("Comprar Cargador"),
-    },
-    {
-      imageSrc: "products/funda-premium2.jpg",
-      imageAlt: "Funda Premium Magnetic",
-      title: "Funda Premium Magnetic",
-      price: "$15,590.00",
-      originalPrice: "$18,550.00",
-      discount: "save 20%",
-      badges: ["Stock ready", "Official store"],
-      onBuyClick: () => console.log("Comprar Funda"),
-    },
-    {
-      imageSrc: "products/soporte.jpg",
-      imageAlt: "Soporte MagSafe",
-      title: "Soporte p/ MagSafe",
-      price: "$17,590.00",
-      originalPrice: "$22,550.00",
-      discount: "save 20%",
-      badges: ["Stock ready", "Official store"],
-      onBuyClick: () => console.log("Comprar Funda"),
-    },
-  ];
+  const { agregarAlCarrito, alternarDeseos, estaEnDeseos } = useShop();
+
+  const formatPrice = (value) => {
+    if (Number.isNaN(value)) return "";
+    return new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+      maximumFractionDigits: 0,
+    }).format(value);
+  };
+
+  const obtenerBadges = (item) => {
+    const badges = [];
+    badges.push(item.inStock ? "Stock ready" : "Sin stock");
+    if (item.brand === "Cactus") {
+      badges.push("Official store");
+    } else {
+      badges.push(item.brand);
+    }
+    return badges;
+  };
+
+  const slides = useMemo(() => {
+    const ids = ["p1", "p2", "p3", "p4"];
+    const items = productos.filter((item) => ids.includes(item.id));
+    return items.length > 0 ? items : productos.slice(0, 4);
+  }, []);
 
   return (
     <div className="mx-auto max-w-[1100px] px-0">
@@ -115,23 +102,26 @@ export const Destacados = () => {
           }}
           aria-label="Productos destacados"
         >
-          {slides.map((slide, index) => (
-            <SplideSlide key={index}>
+          {slides.map((item) => (
+            <SplideSlide key={item.id}>
               <div className="flex justify-center">
                 <Cards
-                  className="shadow-lg rounded-xl transform transition-transform duration-300 hover:scale-105"
-                  imageSrc={slide.imageSrc}
-                  imageAlt={slide.imageAlt}
-                  title={slide.title}
-                  price={slide.price}
-                  originalPrice={slide.originalPrice}
-                  discount={slide.discount}
-                  badges={slide.badges}
+                  imageSrc={item.image}
+                  imageAlt={item.name}
+                  title={item.name}
+                  price={formatPrice(item.price)}
+                  originalPrice={item.oldPrice ? formatPrice(item.oldPrice) : null}
+                  discount={item.oldPrice ? "save" : null}
+                  badges={obtenerBadges(item)}
                   reviews={{
-                    stars: 4.5,
-                    count: "20k reviews",
+                    stars: item.rating,
+                    count: item.reviewsCount
+                      ? `${(item.reviewsCount / 1000).toFixed(1)}k reviews`
+                      : "",
                   }}
-                  onBuyClick={slide.onBuyClick}
+                  onBuyClick={() => agregarAlCarrito(item)}
+                  onWishlistClick={() => alternarDeseos(item)}
+                  wishlistActive={estaEnDeseos(item.id)}
                 />
               </div>
             </SplideSlide>

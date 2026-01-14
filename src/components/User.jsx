@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+﻿import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const User = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Estado para manejar el desplegable
-  const dropdownRef = useRef(null); // Referencia al contenedor del desplegable
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-  // Cierra el desplegable si se hace clic fuera del componente
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -16,7 +16,6 @@ export const User = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  // Función para alternar el desplegable
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
@@ -34,13 +33,13 @@ export const User = () => {
 
       {/* Desplegable */}
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-5 w-48 h-20 bg-white rounded-lg shadow-lg z-10">
+        <div className="absolute right-0 mt-5 w-56 bg-white rounded-lg shadow-lg z-10">
           <ul className="p-4 text-sm text-black font-mono">
             <li className="hover:text-yellow-400 cursor-pointer">
-              <a href="/login">Iniciar sesión</a>
+              <Link to="/login">Iniciar sesion</Link>
             </li>
             <li className="hover:text-yellow-400 cursor-pointer mt-2">
-              <a href="/register">Registrarme</a>
+              <Link to="/registro">Registrarme</Link>
             </li>
           </ul>
         </div>
