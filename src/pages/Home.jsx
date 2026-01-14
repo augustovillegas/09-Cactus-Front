@@ -162,11 +162,12 @@ export const Home = () => {
               Aprovecha nuestras promociones limitadas y consigue los mejores
               precios.
             </p>
-            <button className="bg-black text-white font-semibold px-7 py-3 rounded-lg shadow hover:bg-yellow-400 hover:text-black transition duration-500">
-              <a href="#productos">
-                <img src="icons/cards/eye.svg" alt="" className="filter invert" />
-              </a>
-            </button>
+            <RouterLink
+              to="/ofertas"
+              className="inline-flex items-center justify-center bg-black text-white font-semibold px-7 py-3 rounded-lg shadow hover:bg-yellow-400 hover:text-black transition duration-500"
+            >
+              Ver ofertas
+            </RouterLink>
           </div>
         </section>
       </Element>
@@ -174,4 +175,3 @@ export const Home = () => {
     </div>
   );
 };
-
