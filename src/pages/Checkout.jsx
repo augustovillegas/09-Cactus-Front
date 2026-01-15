@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from "react";
+﻿import React, { useMemo } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -54,8 +55,21 @@ const paymentOptions = [
 
 export const Checkout = () => {
   const { itemsCarrito } = useShop();
-  const [shippingMethod, setShippingMethod] = useState("standard");
-  const [paymentMethod, setPaymentMethod] = useState("card");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      shippingMethod: "standard",
+      paymentMethod: "card",
+    },
+  });
+  const onSubmit = async () => {};
+  const shippingMethod = watch("shippingMethod");
+  const paymentMethod = watch("paymentMethod");
 
   const subtotal = useMemo(
     () =>
@@ -122,7 +136,10 @@ export const Checkout = () => {
           ))}
         </ol>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-8">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-8"
+        >
           <div className="space-y-6">
             <div className="bg-white border border-gray-200 rounded-xl p-5 space-y-4">
               <div className="flex items-center justify-between">
@@ -137,32 +154,84 @@ export const Checkout = () => {
                   <input
                     type="text"
                     placeholder="Nombre completo"
+                    {...register("nombre", {
+                      required: "Ingresa tu nombre y apellido",
+                      pattern: {
+                        value: /^[A-Za-z??????????????\s]+$/,
+                        message: "El nombre no puede tener numeros",
+                      },
+                      minLength: {
+                        value: 3,
+                        message: "Ingresa un nombre valido",
+                      },
+                    })}
+                    aria-invalid={errors.nombre ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.nombre && (
+                    <span className="text-xs text-red-500">{errors.nombre.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   Email
                   <input
                     type="email"
                     placeholder="correo@ejemplo.com"
+                    {...register("email", {
+                      required: "Ingresa tu email",
+                      pattern: {
+                        value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
+                        message: "Ingresa un email valido",
+                      },
+                    })}
+                    aria-invalid={errors.email ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.email && (
+                    <span className="text-xs text-red-500">{errors.email.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   Telefono
                   <input
                     type="tel"
                     placeholder="11 0000 0000"
+                    {...register("telefono", {
+                      required: "Ingresa tu telefono",
+                      pattern: {
+                        value: /^[0-9\s()+-]+$/,
+                        message: "Ingresa un telefono valido",
+                      },
+                      minLength: {
+                        value: 7,
+                        message: "El telefono debe tener al menos 7 digitos",
+                      },
+                    })}
+                    aria-invalid={errors.telefono ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.telefono && (
+                    <span className="text-xs text-red-500">{errors.telefono.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   DNI
                   <input
                     type="text"
                     placeholder="Documento"
+                    {...register("dni", {
+                      required: "Ingresa tu documento",
+                      minLength: {
+                        value: 7,
+                        message: "El documento debe tener al menos 7 digitos",
+                      },
+                    })}
+                    aria-invalid={errors.dni ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.dni && (
+                    <span className="text-xs text-red-500">{errors.dni.message}</span>
+                  )}
                 </label>
               </div>
             </div>
@@ -180,38 +249,79 @@ export const Checkout = () => {
                   <input
                     type="text"
                     placeholder="Av. Siempre Viva 742"
+                    {...register("direccion", {
+                      required: "Ingresa la direccion",
+                    })}
+                    aria-invalid={errors.direccion ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.direccion && (
+                    <span className="text-xs text-red-500">{errors.direccion.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   Ciudad
                   <input
                     type="text"
                     placeholder="Ciudad"
+                    {...register("ciudad", {
+                      required: "Ingresa tu ciudad",
+                      pattern: {
+                        value: /^[A-Za-z??????????????\s]+$/,
+                        message: "La ciudad no puede tener numeros",
+                      },
+                    })}
+                    aria-invalid={errors.ciudad ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.ciudad && (
+                    <span className="text-xs text-red-500">{errors.ciudad.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   Provincia
                   <input
                     type="text"
                     placeholder="Provincia"
+                    {...register("provincia", {
+                      required: "Ingresa tu provincia",
+                      pattern: {
+                        value: /^[A-Za-z??????????????\s]+$/,
+                        message: "La provincia no puede tener numeros",
+                      },
+                    })}
+                    aria-invalid={errors.provincia ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.provincia && (
+                    <span className="text-xs text-red-500">{errors.provincia.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   Codigo postal
                   <input
                     type="text"
                     placeholder="CP"
+                    {...register("codigoPostal", {
+                      required: "Ingresa el codigo postal",
+                      pattern: {
+                        value: /^[A-Za-z0-9\s-]+$/,
+                        message: "Ingresa un codigo postal valido",
+                      },
+                    })}
+                    aria-invalid={errors.codigoPostal ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.codigoPostal && (
+                    <span className="text-xs text-red-500">{errors.codigoPostal.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   Referencias
                   <input
                     type="text"
                     placeholder="Entre calles, piso, etc."
+                    {...register("referencias")}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
                 </label>
@@ -233,9 +343,10 @@ export const Checkout = () => {
                   >
                     <input
                       type="radio"
-                      name="shipping"
-                      checked={shippingMethod === option.id}
-                      onChange={() => setShippingMethod(option.id)}
+                      value={option.id}
+                      {...register("shippingMethod", {
+                        required: "Selecciona un metodo de envio",
+                      })}
                       className="mt-1"
                     />
                     <span className="flex-1">
@@ -256,6 +367,9 @@ export const Checkout = () => {
                   </label>
                 ))}
               </div>
+              {errors.shippingMethod && (
+                <span className="text-xs text-red-500">{errors.shippingMethod.message}</span>
+              )}
             </div>
 
             <div className="bg-white border border-gray-200 rounded-xl p-5 space-y-4">
@@ -273,9 +387,10 @@ export const Checkout = () => {
                   >
                     <input
                       type="radio"
-                      name="payment"
-                      checked={paymentMethod === option.id}
-                      onChange={() => setPaymentMethod(option.id)}
+                      value={option.id}
+                      {...register("paymentMethod", {
+                        required: "Selecciona un metodo de pago",
+                      })}
                       className="mt-1"
                     />
                     <span>
@@ -289,46 +404,100 @@ export const Checkout = () => {
                   </label>
                 ))}
               </div>
+              {errors.paymentMethod && (
+                <span className="text-xs text-red-500">{errors.paymentMethod.message}</span>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <label className="flex flex-col gap-2">
                   Nombre en la tarjeta
                   <input
                     type="text"
                     placeholder="Como figura en la tarjeta"
+                    {...register("cardName", {
+                      validate: (value) =>
+                        paymentMethod !== "card" ||
+                        (value && value.trim().length > 2) ||
+                        "Ingresa el nombre de la tarjeta",
+                    })}
+                    aria-invalid={errors.cardName ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.cardName && (
+                    <span className="text-xs text-red-500">{errors.cardName.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   Numero de tarjeta
                   <input
                     type="text"
                     placeholder="0000 0000 0000 0000"
+                    {...register("cardNumber", {
+                      validate: (value) =>
+                        paymentMethod !== "card" ||
+                        (/^(\d{16}|\d{4} \d{4} \d{4} \d{4})$/.test(
+                          value || ""
+                        ) ||
+                          "Ingresa un numero de tarjeta valido"),
+                    })}
+                    aria-invalid={errors.cardNumber ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.cardNumber && (
+                    <span className="text-xs text-red-500">{errors.cardNumber.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   Vencimiento
                   <input
                     type="text"
                     placeholder="MM/AA"
+                    {...register("cardExpiry", {
+                      validate: (value) =>
+                        paymentMethod !== "card" ||
+                        (/^(0[1-9]|1[0-2])\/\d{2}$/.test(value || "") ||
+                          "Ingresa un vencimiento valido"),
+                    })}
+                    aria-invalid={errors.cardExpiry ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.cardExpiry && (
+                    <span className="text-xs text-red-500">{errors.cardExpiry.message}</span>
+                  )}
                 </label>
                 <label className="flex flex-col gap-2">
                   CVV
                   <input
                     type="password"
                     placeholder="***"
+                    {...register("cardCvv", {
+                      validate: (value) =>
+                        paymentMethod !== "card" ||
+                        (/^\d{3,4}$/.test(value || "") ||
+                          "Ingresa un CVV valido"),
+                    })}
+                    aria-invalid={errors.cardCvv ? "true" : "false"}
                     className="h-10 rounded-md border border-gray-300 px-3"
                   />
+                  {errors.cardCvv && (
+                    <span className="text-xs text-red-500">{errors.cardCvv.message}</span>
+                  )}
                 </label>
               </div>
               <label className="flex items-start gap-2 text-xs text-gray-500">
-                <input type="checkbox" className="mt-1" />
+                <input
+                  type="checkbox"
+                  className="mt-1"
+                  {...register("terms", {
+                    validate: (value) => value || "Debes aceptar los terminos",
+                  })}
+                />
                 <span>
                   Acepto los terminos, condiciones y politica de devoluciones.
                 </span>
               </label>
+              {errors.terms && (
+                <span className="text-xs text-red-500">{errors.terms.message}</span>
+              )}
             </div>
           </div>
 
@@ -390,7 +559,8 @@ export const Checkout = () => {
             </div>
 
             <button
-              type="button"
+              type="submit"
+              disabled={isSubmitting || !isValid}
               className="w-full bg-black text-white text-sm font-semibold py-3 rounded-md hover:bg-gray-800 transition"
             >
               Pagar
@@ -412,7 +582,7 @@ export const Checkout = () => {
               Seguir comprando
             </Link>
           </aside>
-        </div>
+        </form>
       </div>
     </section>
   );

@@ -1,7 +1,15 @@
-import React from "react";
+﻿import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 export const Registro = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm({ mode: "onChange" });
+  const onSubmit = async () => {};
+
   return (
     <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-gray-100">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -55,7 +63,7 @@ export const Registro = () => {
               <span className="h-px bg-gray-200 flex-1" />
             </div>
 
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm text-gray-600" htmlFor="nombre">
                   Nombre
@@ -65,8 +73,23 @@ export const Registro = () => {
                   name="nombre"
                   type="text"
                   placeholder="Tu nombre"
+                  {...register("nombre", {
+                    required: "Ingresa tu nombre",
+                    pattern: {
+                      value: /^[A-Za-z??????????????\s]+$/,
+                      message: "El nombre no puede tener numeros",
+                    },
+                    minLength: {
+                      value: 2,
+                      message: "El nombre debe tener al menos 2 caracteres",
+                    },
+                  })}
+                  aria-invalid={errors.nombre ? "true" : "false"}
                   className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
+                {errors.nombre && (
+                  <span className="text-xs text-red-500">{errors.nombre.message}</span>
+                )}
               </div>
               <div>
                 <label className="text-sm text-gray-600" htmlFor="apellido">
@@ -77,8 +100,23 @@ export const Registro = () => {
                   name="apellido"
                   type="text"
                   placeholder="Tu apellido"
+                  {...register("apellido", {
+                    required: "Ingresa tu apellido",
+                    pattern: {
+                      value: /^[A-Za-z??????????????\s]+$/,
+                      message: "El apellido no puede tener numeros",
+                    },
+                    minLength: {
+                      value: 2,
+                      message: "El apellido debe tener al menos 2 caracteres",
+                    },
+                  })}
+                  aria-invalid={errors.apellido ? "true" : "false"}
                   className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
+                {errors.apellido && (
+                  <span className="text-xs text-red-500">{errors.apellido.message}</span>
+                )}
               </div>
               <div className="md:col-span-2">
                 <label className="text-sm text-gray-600" htmlFor="email">
@@ -89,8 +127,19 @@ export const Registro = () => {
                   name="email"
                   type="email"
                   placeholder="tu@email.com"
+                  {...register("email", {
+                    required: "Ingresa tu email",
+                    pattern: {
+                      value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
+                      message: "Ingresa un email valido",
+                    },
+                  })}
+                  aria-invalid={errors.email ? "true" : "false"}
                   className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
+                {errors.email && (
+                  <span className="text-xs text-red-500">{errors.email.message}</span>
+                )}
               </div>
               <div className="md:col-span-2">
                 <label className="text-sm text-gray-600" htmlFor="password">
@@ -101,18 +150,39 @@ export const Registro = () => {
                   name="password"
                   type="password"
                   placeholder="Minimo 8 caracteres"
+                  {...register("password", {
+                    required: "Ingresa una contrase?a",
+                    minLength: {
+                      value: 8,
+                      message: "La contrase?a debe tener al menos 8 caracteres",
+                    },
+                  })}
+                  aria-invalid={errors.password ? "true" : "false"}
                   className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
+                {errors.password && (
+                  <span className="text-xs text-red-500">{errors.password.message}</span>
+                )}
               </div>
               <div className="md:col-span-2 flex items-center gap-2 text-xs text-gray-500">
-                <input type="checkbox" id="terms" />
+                <input
+                  type="checkbox"
+                  id="terms"
+                  {...register("terms", {
+                    validate: (value) => value || "Debes aceptar los terminos",
+                  })}
+                />
                 <label htmlFor="terms">
                   Acepto terminos y condiciones de Cactus.
                 </label>
+                {errors.terms && (
+                  <span className="text-xs text-red-500">{errors.terms.message}</span>
+                )}
               </div>
               <div className="md:col-span-2">
                 <button
                   type="submit"
+                  disabled={isSubmitting || !isValid}
                   className="w-full bg-black text-white font-semibold px-6 py-2 rounded-md hover:bg-gray-800 transition"
                 >
                   Crear cuenta

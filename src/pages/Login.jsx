@@ -1,7 +1,15 @@
-import React from "react";
+﻿import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm({ mode: "onChange" });
+  const onSubmit = async () => {};
+
   return (
     <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-gray-100">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -55,7 +63,7 @@ export const Login = () => {
               <span className="h-px bg-gray-200 flex-1" />
             </div>
 
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div>
                 <label className="text-sm text-gray-600" htmlFor="email">
                   Email
@@ -65,24 +73,46 @@ export const Login = () => {
                   name="email"
                   type="email"
                   placeholder="tu@email.com"
+                  {...register("email", {
+                    required: "Ingresa tu email",
+                    pattern: {
+                      value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
+                      message: "Ingresa un email valido",
+                    },
+                  })}
+                  aria-invalid={errors.email ? "true" : "false"}
                   className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
+                {errors.email && (
+                  <span className="text-xs text-red-500">{errors.email.message}</span>
+                )}
               </div>
               <div>
                 <label className="text-sm text-gray-600" htmlFor="password">
-                  Contraseña
+                  Contrase?a
                 </label>
                 <input
                   id="password"
                   name="password"
                   type="password"
-                  placeholder="Tu contraseña"
+                  placeholder="Tu contrase?a"
+                  {...register("password", {
+                    required: "Ingresa tu contrase?a",
+                    minLength: {
+                      value: 6,
+                      message: "La contrase?a debe tener al menos 6 caracteres",
+                    },
+                  })}
+                  aria-invalid={errors.password ? "true" : "false"}
                   className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
+                {errors.password && (
+                  <span className="text-xs text-red-500">{errors.password.message}</span>
+                )}
               </div>
               <div className="flex items-center justify-between text-xs text-gray-500">
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" />
+                  <input type="checkbox" {...register("recordarme")} />
                   Recordarme
                 </label>
                 <button
@@ -94,6 +124,7 @@ export const Login = () => {
               </div>
               <button
                 type="submit"
+                disabled={isSubmitting || !isValid}
                 className="w-full bg-black text-white font-semibold px-6 py-2 rounded-md hover:bg-gray-800 transition"
               >
                 Iniciar sesion
