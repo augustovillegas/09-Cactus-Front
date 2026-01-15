@@ -1,6 +1,6 @@
-<div align="center">
+﻿<div align="center">
 
-# ?? Cactus - Ecommerce tecnologico
+# 🌵 Cactus - Ecommerce tecnologico
 
 Tienda online de tecnologia y accesorios con catalogo filtrable, carrito persistente y flujo de checkout guiado.
 
@@ -10,7 +10,7 @@ Tienda online de tecnologia y accesorios con catalogo filtrable, carrito persist
 ![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-9-4B32C3?logo=eslint&logoColor=white)
 
-[Demo](https://cactusv2.netlify.app/) � [Documentacion](#-tabla-de-contenidos) � [Reporte de issues](#-contribuciones)
+[Demo](https://cactusv2.netlify.app/) · [Documentacion](#-tabla-de-contenidos) · [Reporte de issues](#-contribuciones)
 
 </div>
 
@@ -18,34 +18,34 @@ Tienda online de tecnologia y accesorios con catalogo filtrable, carrito persist
 
 **Indice rapido**
 
-[Descripcion](#-descripcion) � [Caracteristicas](#-caracteristicas) � [Stack](#-stack-tecnologico) � [Inicio rapido](#-inicio-rapido) � [Arquitectura](#-arquitectura)
+[Descripcion](#-descripcion) · [Caracteristicas](#-caracteristicas) · [Stack](#-stack-tecnologico) · [Inicio rapido](#-inicio-rapido) · [Arquitectura](#-arquitectura)
 
 </div>
 
 ---
 
-## ?? Tabla de Contenidos
+## 📚 Tabla de Contenidos
 
-- [?? Descripcion](#-descripcion)
-- [? Caracteristicas](#-caracteristicas)
-- [?? Stack Tecnologico](#-stack-tecnologico)
-- [?? Inicio Rapido](#-inicio-rapido)
-- [?? Arquitectura](#-arquitectura)
-- [??? Estructura del Proyecto](#-estructura-del-proyecto)
-- [?? Componentes / Modulos Principales](#-componentes--modulos-principales)
-- [?? Validaciones](#-validaciones)
-- [?? API Integration / Endpoints](#-api-integration--endpoints)
-- [?? Scripts Disponibles](#-scripts-disponibles)
-- [?? Variables de Entorno](#-variables-de-entorno)
-- [?? Deployment](#-deployment)
-- [?? Guias de Uso](#-guias-de-uso)
-- [?? Personalizacion / Extension](#-personalizacion--extension)
-- [?? Contribuciones](#-contribuciones)
-- [?? Licencia](#-licencia)
+- [📝 Descripcion](#-descripcion)
+- [✅ Caracteristicas](#-caracteristicas)
+- [🧰 Stack Tecnologico](#-stack-tecnologico)
+- [🚀 Inicio Rapido](#-inicio-rapido)
+- [🧭 Arquitectura](#-arquitectura)
+- [🗂️ Estructura del Proyecto](#-estructura-del-proyecto)
+- [🧩 Componentes / Modulos Principales](#-componentes--modulos-principales)
+- [🧪 Validaciones](#-validaciones)
+- [🔌 API Integration / Endpoints](#-api-integration--endpoints)
+- [📜 Scripts Disponibles](#-scripts-disponibles)
+- [🔐 Variables de Entorno](#-variables-de-entorno)
+- [📦 Deployment](#-deployment)
+- [📖 Guias de Uso](#-guias-de-uso)
+- [🧩 Personalizacion / Extension](#-personalizacion--extension)
+- [🤝 Contribuciones](#-contribuciones)
+- [📄 Licencia](#-licencia)
 
 ---
 
-## ?? Descripcion
+## 📝 Descripcion
 
 **Que problema resuelve:** centraliza la experiencia de compra de accesorios de tecnologia con un catalogo navegable, filtros avanzados y un checkout claro para aumentar la conversion.
 
@@ -55,20 +55,20 @@ Tienda online de tecnologia y accesorios con catalogo filtrable, carrito persist
 
 ---
 
-## ? Caracteristicas
+## ✅ Caracteristicas
 
-- ? Catalogo con filtros por categoria, marca, color, rango de precio y stock
-- ? Ordenamiento por relevancia, precio y rating
-- ? Carrito desplegable con ajustes de cantidad y resumen de compra
-- ? Wishlist persistente con toggle rapido
-- ? Checkout multi paso con validaciones en vivo
-- ? Formularios de login, registro y contacto con feedback inmediato
-- ? Lazy loading de imagenes y componentes optimizados
-- ? Navegacion por secciones con scroll suave y boton volver arriba
+- ✅ Catalogo con filtros por categoria, marca, color, rango de precio y stock
+- ✅ Ordenamiento por relevancia, precio y rating
+- ✅ Carrito desplegable con ajustes de cantidad y resumen de compra
+- ✅ Wishlist persistente con toggle rapido
+- ✅ Checkout multi paso con validaciones en vivo
+- ✅ Formularios de login, registro y contacto con feedback inmediato
+- ✅ Lazy loading de imagenes y componentes optimizados
+- ✅ Navegacion por secciones con scroll suave y boton volver arriba
 
 ---
 
-## ?? Stack Tecnologico
+## 🧰 Stack Tecnologico
 
 | Tecnologia | Proposito |
 | --- | --- |
@@ -83,7 +83,7 @@ Tienda online de tecnologia y accesorios con catalogo filtrable, carrito persist
 
 ---
 
-## ?? Inicio Rapido
+## 🚀 Inicio Rapido
 
 **Prerrequisitos**
 
@@ -116,7 +116,7 @@ npm run preview
 
 ---
 
-## ?? Arquitectura
+## 🧭 Arquitectura
 
 **Patrones utilizados**
 
@@ -156,34 +156,34 @@ localStorage    src/data/db.js
 
 ---
 
-## ??? Estructura del Proyecto
+## 🗂️ Estructura del Proyecto
 
 ```text
 C:\Users\Asus\Desktop\09-Cactus-Front
-+-- public
-�   +-- category
-�   +-- icons
-�   +-- products
-�   +-- hero.jpg
-+-- src
-�   +-- components
-�   +-- context
-�   +-- data
-�   +-- helpers
-�   +-- pages
-�   +-- App.jsx
-�   +-- index.css
-�   +-- main.jsx
-+-- index.html
-+-- tailwind.config.js
-+-- postcss.config.js
-+-- vite.config.js
-+-- package.json
+├── public
+│   ├── category
+│   ├── icons
+│   ├── products
+│   └── hero.jpg
+├── src
+│   ├── components
+│   ├── context
+│   ├── data
+│   ├── helpers
+│   ├── pages
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── tailwind.config.js
+├── postcss.config.js
+├── vite.config.js
+└── package.json
 ```
 
 ---
 
-## ?? Componentes / Modulos Principales
+## 🧩 Componentes / Modulos Principales
 
 **Contexto**
 
@@ -213,7 +213,7 @@ C:\Users\Asus\Desktop\09-Cactus-Front
 
 ---
 
-## ?? Validaciones
+## 🧪 Validaciones
 
 - Formularios con `react-hook-form` y validacion en tiempo real.
 - Login y registro: email valido, minimos de contrasena y aceptacion de terminos.
@@ -222,7 +222,7 @@ C:\Users\Asus\Desktop\09-Cactus-Front
 
 ---
 
-## ?? API Integration / Endpoints
+## 🔌 API Integration / Endpoints
 
 Este proyecto actualmente usa datos locales desde `src/data/db.js`. La integracion con API esta preparada para ser incorporada.
 
@@ -253,7 +253,7 @@ type Product = {
 
 ---
 
-## ?? Scripts Disponibles
+## 📜 Scripts Disponibles
 
 | Script | Descripcion |
 | --- | --- |
@@ -264,7 +264,7 @@ type Product = {
 
 ---
 
-## ?? Variables de Entorno
+## 🔐 Variables de Entorno
 
 Este frontend funciona sin variables obligatorias. Si se integra un backend, se recomienda definir una base URL.
 
@@ -281,9 +281,11 @@ VITE_API_BASE_URL=https://api.tu-dominio.com
 
 ---
 
-## ?? Deployment
+## 📦 Deployment
 
 **Servicio recomendado:** Vercel o Netlify para apps Vite.
+
+**Deploy actual:** https://cactusv2.netlify.app/
 
 **Pasos generales**
 
@@ -302,7 +304,7 @@ Install Command: npm install
 
 ---
 
-## ?? Guias de Uso
+## 📖 Guias de Uso
 
 **Explorar catalogo**
 
@@ -331,16 +333,16 @@ Install Command: npm install
 
 ---
 
-## ?? Personalizacion / Extension
+## 🧩 Personalizacion / Extension
 
 - Reemplazar el catalogo en `src/data/db.js` por una API real.
 - Extender `ShopContext` para manejar cupones, impuestos o stock en tiempo real.
 - Crear nuevas categorias y colecciones en `public/category`.
-- Ajustar el dise�o en `src/index.css` y componentes con Tailwind.
+- Ajustar el diseño en `src/index.css` y componentes con Tailwind.
 
 ---
 
-## ?? Contribuciones
+## 🤝 Contribuciones
 
 1. Haz un fork del proyecto.
 2. Crea una rama: `git checkout -b feature/mi-mejora`.
@@ -349,7 +351,7 @@ Install Command: npm install
 
 ---
 
-## ?? Licencia
+## 📄 Licencia
 
 Este proyecto se distribuye bajo la licencia `MIT`. Reemplaza este texto si necesitas otra licencia.
 
@@ -358,6 +360,6 @@ Este proyecto se distribuye bajo la licencia `MIT`. Reemplaza este texto si nece
 <div align="center">
 
 Hecho con dedicacion para experiencias de compra rapidas y claras.  
-[Volver arriba](#-cactus---ecommerce-tecnologico)
+[LinkedIn](https://www.linkedin.com/in/augustovillegas/) · [Volver arriba](#-cactus---ecommerce-tecnologico)
 
 </div>
