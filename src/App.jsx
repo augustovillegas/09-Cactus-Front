@@ -12,6 +12,7 @@ import { Login } from "./pages/Login";
 import { Registro } from "./pages/Registro";
 import { Deseos } from "./pages/Deseos";
 import { Ofertas } from "./pages/Ofertas";
+import { Checkout } from "./pages/Checkout";
 import { ShopProvider } from "./context/ShopContext";
 
 const Layout = () => {
@@ -40,6 +41,7 @@ export const App = () => {
           <Route path="/registro" element={<Registro />} />
           <Route path="/deseos" element={<Deseos />} />
           <Route path="/ofertas" element={<Ofertas />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Route>
       </Routes>
       </div>

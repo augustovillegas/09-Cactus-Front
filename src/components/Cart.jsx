@@ -1,4 +1,5 @@
 ﻿import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useShop } from "../context/ShopContext";
@@ -12,6 +13,20 @@ export const Cart = () => {
   } = useShop();
   const [estaAbierto, setEstaAbierto] = useState(false);
   const contenedorRef = useRef(null);
+  const formatPrice = (value) => {
+    if (Number.isNaN(value)) return "";
+    return new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+      maximumFractionDigits: 0,
+    }).format(value);
+  };
+
+  const subtotal = itemsCarrito.reduce(
+    (acc, item) => acc + item.product.price * item.quantity,
+    0
+  );
+  const total = subtotal;
 
   useEffect(() => {
     const manejarClickFuera = (event) => {
@@ -71,7 +86,7 @@ export const Cart = () => {
                       {item.product.name}
                     </span>
                     <span className="text-xs text-gray-500">
-                      x{item.quantity}
+                      {formatPrice(item.product.price)} · x{item.quantity}
                     </span>
                   </div>
                 </div>
@@ -100,6 +115,36 @@ export const Cart = () => {
                 </div>
               </div>
             ))}
+            {itemsCarrito.length > 0 && (
+              <div className="pt-3 border-t border-gray-200 space-y-2">
+                <div className="flex items-center justify-between text-xs text-gray-600">
+                  <span>Subtotal</span>
+                  <span className="font-semibold text-gray-800">
+                    {formatPrice(subtotal)}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-xs text-gray-500">
+                  <span>Envio</span>
+                  <span className="font-semibold text-gray-500">
+                    A calcular
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-sm text-gray-900">
+                  <span className="font-semibold">Total</span>
+                  <span className="font-bold">{formatPrice(total)}</span>
+                </div>
+                <Link
+                  to="/checkout"
+                  onClick={() => setEstaAbierto(false)}
+                  className="w-full mt-2 bg-black text-white text-xs font-semibold py-2.5 rounded-md hover:bg-gray-800 transition inline-flex items-center justify-center"
+                >
+                  Confirmar compra
+                </Link>
+                <p className="text-[10px] text-gray-400 text-center">
+                  Impuestos incluidos. Envio calculado al finalizar.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       )}

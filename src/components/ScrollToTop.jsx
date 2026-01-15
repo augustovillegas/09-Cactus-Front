@@ -1,28 +1,19 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const smoothScrollToTop = (duration = 400) => {
-  const start = window.scrollY || window.pageYOffset;
-  const startTime = performance.now();
-
-  const step = (now) => {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3);
-    window.scrollTo(0, Math.round(start * (1 - ease)));
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    }
-  };
-
-  requestAnimationFrame(step);
+const scrollToTopInstant = () => {
+  const html = document.documentElement;
+  const previousBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  html.style.scrollBehavior = previousBehavior;
 };
 
 export const ScrollToTop = () => {
   const location = useLocation();
 
-  useEffect(() => {
-    smoothScrollToTop();
+  useLayoutEffect(() => {
+    scrollToTopInstant();
   }, [location.pathname]);
 
   return null;
