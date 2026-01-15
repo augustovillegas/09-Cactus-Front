@@ -13,6 +13,10 @@ import { Registro } from "./pages/Registro";
 import { Deseos } from "./pages/Deseos";
 import { Ofertas } from "./pages/Ofertas";
 import { Checkout } from "./pages/Checkout";
+import { PreguntasFrecuentes } from "./pages/PreguntasFrecuentes";
+import { TerminosCondiciones } from "./pages/TerminosCondiciones";
+import { PoliticaEnvios } from "./pages/PoliticaEnvios";
+import { CambiosDevoluciones } from "./pages/CambiosDevoluciones";
 import { ShopProvider } from "./context/ShopContext";
 
 const Layout = () => {
@@ -42,6 +46,19 @@ export const App = () => {
           <Route path="/deseos" element={<Deseos />} />
           <Route path="/ofertas" element={<Ofertas />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route
+            path="/preguntas-frecuentes"
+            element={<PreguntasFrecuentes />}
+          />
+          <Route
+            path="/terminos-y-condiciones"
+            element={<TerminosCondiciones />}
+          />
+          <Route path="/politica-de-envios" element={<PoliticaEnvios />} />
+          <Route
+            path="/cambios-y-devoluciones"
+            element={<CambiosDevoluciones />}
+          />
         </Route>
       </Routes>
       </div>

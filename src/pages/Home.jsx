@@ -98,11 +98,11 @@ export const Home = () => {
                 Ver todos
               </RouterLink>
             </div>
-            <div className="grid grid-cols-4 grid-rows-3 md:grid-cols-3 md:grid-rows-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {/* Auriculares */}
               <RouterLink
                 to="/productos?categoria=Auriculares"
-                className="col-span-2 md:col-span-1 md:row-span-3 bg-[url('/category/Auriculares.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center h-[300px] sm:h-full hover:scale-105 transition duration-500"
+                className="col-span-1 sm:col-span-2 md:col-span-1 md:row-span-3 bg-[url('/category/Auriculares.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center h-56 sm:h-full hover:scale-105 transition duration-500"
               >
                 <p className="text-white text-xl sm:text-4xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded">
                   Auriculares
@@ -112,7 +112,7 @@ export const Home = () => {
               {/* Accesorios */}
               <RouterLink
                 to="/productos?categoria=Accesorios"
-                className="col-span-2 md:col-span-1 md:row-span-2 bg-[url('/category/Accesorio1.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center md:h-38 hover:scale-105 transition duration-500"
+                className="col-span-1 sm:col-span-1 md:col-span-1 md:row-span-2 bg-[url('/category/Accesorio1.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center h-44 sm:h-56 md:h-38 hover:scale-105 transition duration-500"
               >
                 <p className="text-black text-xl sm:text-2xl font-bold bg-white bg-opacity-70 px-4 py-2 rounded">
                   Accesorios
@@ -122,7 +122,7 @@ export const Home = () => {
               {/* Cables */}
               <RouterLink
                 to="/productos?categoria=Cables"
-                className="col-span-4 row-span-1 md:col-span-1 bg-[url('/category/Cable2.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center md:h-36 hover:scale-105 transition duration-500"
+                className="col-span-1 sm:col-span-2 md:col-span-1 bg-[url('/category/Cable2.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center h-40 sm:h-48 md:h-36 hover:scale-105 transition duration-500"
               >
                 <p className="text-white text-xl sm:text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded">
                   Cables
@@ -132,7 +132,7 @@ export const Home = () => {
               {/* Cases */}
               <RouterLink
                 to="/productos?categoria=Cases"
-                className="col-span-4 row-span-1 md:col-span-1 md:row-span-2 bg-[url('/category/Case2.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center h-46 hover:scale-105 transition duration-500"
+                className="col-span-1 sm:col-span-2 md:col-span-1 md:row-span-2 bg-[url('/category/Case2.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center h-44 sm:h-52 md:h-46 hover:scale-105 transition duration-500"
               >
                 <p className="text-black text-xl sm:text-2xl font-bold bg-white bg-opacity-70 px-4 py-2 rounded">
                   Cases
@@ -142,7 +142,7 @@ export const Home = () => {
               {/* Cargadores */}
               <RouterLink
                 to="/productos?categoria=Cargadores"
-                className="col-span-4 md:col-span-1 bg-[url('/category/Charger4.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center h-40 md:h-36 hover:scale-105 transition duration-500"
+                className="col-span-1 sm:col-span-2 md:col-span-1 bg-[url('/category/Charger4.jpg')] bg-cover bg-center rounded-lg flex items-center justify-center h-44 sm:h-48 md:h-36 hover:scale-105 transition duration-500"
               >
                 <p className="text-white text-xl sm:text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded">
                   Cargadores

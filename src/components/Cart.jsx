@@ -61,7 +61,7 @@ export const Cart = () => {
 
       {/* Desplegable */}
       {estaAbierto && (
-        <div className="absolute right-0 mt-4 md:mt-5 w-72 bg-white rounded-lg shadow-lg z-10">
+        <div className="fixed md:absolute left-4 right-4 md:left-auto md:right-0 top-20 md:top-auto mt-0 md:mt-5 md:w-72 bg-white rounded-lg shadow-lg z-50 max-h-[70vh] overflow-y-auto">
           <div className="p-4 text-sm text-black font-mono space-y-3">
             <p className="font-semibold text-gray-800">Mi carrito</p>
             {itemsCarrito.length === 0 && (

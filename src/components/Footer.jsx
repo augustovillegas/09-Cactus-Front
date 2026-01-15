@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
@@ -146,40 +147,40 @@ export const Footer = () => {
         <div className="flex flex-col items-center text-center text-sm text-gray-400 px-4 space-y-4">
           {/* Enlaces Rapidos */}
           <nav className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-gray-400">
-            <a
-              href="#"
+            <Link
+              to="/preguntas-frecuentes"
               className="hover:text-yellow-400 text-xs leading-tight flex items-center gap-1"
             >
               Preguntas frecuentes
-            </a>
+            </Link>
             <span className="text-gray-500 hidden md:inline">|</span>
-            <a
-              href="#"
+            <Link
+              to="/terminos-y-condiciones"
               className="hover:text-yellow-400 text-xs leading-tight flex items-center gap-1"
             >
               Terminos y Condiciones
-            </a>
+            </Link>
             <span className="text-gray-500 hidden md:inline">|</span>
-            <a
-              href="#"
+            <Link
+              to="/politica-de-envios"
               className="hover:text-yellow-400 text-xs leading-tight flex items-center gap-1"
             >
               Politica de Envios
-            </a>
+            </Link>
             <span className="text-gray-500 hidden md:inline">|</span>
-            <a
-              href="#"
+            <Link
+              to="/cambios-y-devoluciones"
               className="hover:text-yellow-400 text-xs leading-tight flex items-center gap-1"
             >
               Cambios y Devoluciones
-            </a>
+            </Link>
             <span className="text-gray-500 hidden md:inline">|</span>
-            <a
-              href="#"
+            <Link
+              to="/contacto"
               className="hover:text-yellow-400 text-xs leading-tight flex items-center gap-1"
             >
               Contacto
-            </a>
+            </Link>
           </nav>
           <p className="text-[0.9rem] text-gray-500">
             &copy; 2025 #Cactus - Todos los derechos reservados

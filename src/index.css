@@ -6,9 +6,28 @@ html {
   scroll-behavior: auto;
 }
 
-/* Quitar barra de scroll de Navegador */
+/* Barra de desplazamiento personalizada */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #facc15 #0b0b0b;
+}
+
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0b0b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #facc15;
+  border-radius: 9999px;
+  border: 2px solid #0b0b0b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #eab308;
 }
 
 /* Background destacados*/

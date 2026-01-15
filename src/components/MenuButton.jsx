@@ -84,7 +84,7 @@ export const MenuButton = ({ navLinks, isHome }) => {
       <div
         className={`${
           toggle ? "flex" : "hidden"
-        } flex-col items-center font-mono bg-black w-full absolute top-20 left-0 right-0 z-50 py-4`}
+        } flex-col items-center font-mono bg-black w-full fixed top-20 left-0 right-0 z-50 py-4 max-h-[70vh] overflow-y-auto`}
       >
         {navLinks.map((item) => renderLink(item))}
       </div>
