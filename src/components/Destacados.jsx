@@ -122,6 +122,7 @@ export const Destacados = () => {
                   onBuyClick={() => agregarAlCarrito(item)}
                   onWishlistClick={() => alternarDeseos(item)}
                   wishlistActive={estaEnDeseos(item.id)}
+                  useLazyLoad={false}
                 />
               </div>
             </SplideSlide>

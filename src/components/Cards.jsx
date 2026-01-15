@@ -16,6 +16,7 @@ export const Cards = ({
   onWishlistClick,
   wishlistActive = false,
   className = "",
+  useLazyLoad = true,
 }) => {
   const [modalAbierto, setModalAbierto] = useState(false);
 
@@ -88,14 +89,23 @@ export const Cards = ({
 
   return (
     <div className={`${claseTarjeta} ${className}`}>
-      {/* Imagen con LazyLoad */}
+      {/* Imagen */}
       <div className={claseImagenContenedor}>
-        <LazyLoadImage
-          className={claseImagen}
-          src={imageSrc}
-          alt={imageAlt}
-          effect="blur" // Efecto de carga diferida
-        />
+        {useLazyLoad ? (
+          <LazyLoadImage
+            className={claseImagen}
+            src={imageSrc}
+            alt={imageAlt}
+            effect="blur"
+          />
+        ) : (
+          <img
+            className={claseImagen}
+            src={imageSrc}
+            alt={imageAlt}
+            loading="eager"
+          />
+        )}
       </div>
       {/* Contenido */}
       <div className={claseContenido}>
