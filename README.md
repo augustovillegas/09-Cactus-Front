@@ -1,8 +1,8 @@
 ﻿<div align="center">
 
-# 🌵 Cactus - Ecommerce tecnologico
+# 🌵 Cactus - Ecommerce tecnológico
 
-Tienda online de tecnologia y accesorios con catalogo filtrable, carrito persistente y flujo de checkout guiado.
+Tienda online de tecnología y accesorios con catálogo filtrable, carrito persistente y flujo de checkout guiado.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
@@ -10,15 +10,15 @@ Tienda online de tecnologia y accesorios con catalogo filtrable, carrito persist
 ![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-9-4B32C3?logo=eslint&logoColor=white)
 
-[Demo](https://cactusv2.netlify.app/) · [Documentacion](#-tabla-de-contenidos) · [Reporte de issues](#-contribuciones)
+[Demo](https://cactusv2.netlify.app/) · [Documentación](#-tabla-de-contenidos) · [Reporte de issues](#-contribuciones)
 
 </div>
 
 <div align="center">
 
-**Indice rapido**
+**Índice rápido**
 
-[Descripcion](#-descripcion) · [Caracteristicas](#-caracteristicas) · [Stack](#-stack-tecnologico) · [Inicio rapido](#-inicio-rapido) · [Arquitectura](#-arquitectura)
+[Descripción](#-descripcion) · [Características](#-caracteristicas) · [Stack](#-stack-tecnologico) · [Inicio rápido](#-inicio-rapido) · [Arquitectura](#-arquitectura)
 
 </div>
 
@@ -26,71 +26,71 @@ Tienda online de tecnologia y accesorios con catalogo filtrable, carrito persist
 
 ## 📚 Tabla de Contenidos
 
-- [📝 Descripcion](#-descripcion)
-- [✅ Caracteristicas](#-caracteristicas)
-- [🧰 Stack Tecnologico](#-stack-tecnologico)
-- [🚀 Inicio Rapido](#-inicio-rapido)
+- [📝 Descripción](#-descripcion)
+- [✅ Características](#-caracteristicas)
+- [🧰 Stack Tecnológico](#-stack-tecnologico)
+- [🚀 Inicio Rápido](#-inicio-rapido)
 - [🧭 Arquitectura](#-arquitectura)
 - [🗂️ Estructura del Proyecto](#-estructura-del-proyecto)
-- [🧩 Componentes / Modulos Principales](#-componentes--modulos-principales)
+- [🧩 Componentes / Módulos Principales](#-componentes--modulos-principales)
 - [🧪 Validaciones](#-validaciones)
 - [🔌 API Integration / Endpoints](#-api-integration--endpoints)
 - [📜 Scripts Disponibles](#-scripts-disponibles)
 - [🔐 Variables de Entorno](#-variables-de-entorno)
 - [📦 Deployment](#-deployment)
-- [📖 Guias de Uso](#-guias-de-uso)
-- [🧩 Personalizacion / Extension](#-personalizacion--extension)
+- [📖 Guías de Uso](#-guias-de-uso)
+- [🧩 Personalización / Extensión](#-personalizacion--extension)
 - [🤝 Contribuciones](#-contribuciones)
 - [📄 Licencia](#-licencia)
 
 ---
 
-## 📝 Descripcion
+## 📝 Descripción
 
-**Que problema resuelve:** centraliza la experiencia de compra de accesorios de tecnologia con un catalogo navegable, filtros avanzados y un checkout claro para aumentar la conversion.
+**Qué problema resuelve:** centraliza la experiencia de compra de accesorios de tecnología con un catálogo navegable, filtros avanzados y un checkout claro para aumentar la conversión.
 
-**Para quien es:** equipos de marketing, ventas y desarrollo que necesitan un storefront rapido de desplegar con un look premium y flujos listos para personalizar.
+**Para quién es:** equipos de marketing, ventas y desarrollo que necesitan un storefront rápido de desplegar con un look premium y flujos listos para personalizar.
 
-**Tipo de aplicacion:** Frontend SPA en React con routing cliente, estado global por contexto y persistencia en `localStorage`.
+**Tipo de aplicación:** Frontend SPA en React con routing cliente, estado global por contexto y persistencia en `localStorage`.
 
 ---
 
-## ✅ Caracteristicas
+## ✅ Características
 
-- ✅ Catalogo con filtros por categoria, marca, color, rango de precio y stock
+- ✅ Catálogo con filtros por categoría, marca, color, rango de precio y stock
 - ✅ Ordenamiento por relevancia, precio y rating
 - ✅ Carrito desplegable con ajustes de cantidad y resumen de compra
-- ✅ Wishlist persistente con toggle rapido
-- ✅ Checkout multi paso con validaciones en vivo
+- ✅ Wishlist persistente con toggle rápido
+- ✅ Checkout multipaso con validaciones en vivo
 - ✅ Formularios de login, registro y contacto con feedback inmediato
-- ✅ Lazy loading de imagenes y componentes optimizados
-- ✅ Navegacion por secciones con scroll suave y boton volver arriba
+- ✅ Lazy loading de imágenes y componentes optimizados
+- ✅ Navegación por secciones con scroll suave y botón volver arriba
 
 ---
 
-## 🧰 Stack Tecnologico
+## 🧰 Stack Tecnológico
 
-| Tecnologia | Proposito |
+| Tecnología | Propósito |
 | --- | --- |
-| React 18 | UI declarativa y composicion de componentes |
-| Vite 6 | Build tool y dev server rapido |
-| React Router 7 | Navegacion SPA y rutas anidadas |
+| React 18 | UI declarativa y composición de componentes |
+| Vite 6 | Build tool y dev server rápido |
+| React Router 7 | Navegación SPA y rutas anidadas |
 | Tailwind CSS 3 | Estilos utility-first |
 | React Hook Form | Manejo de formularios y validaciones |
 | Swiper / Splide | Carruseles y sliders de productos |
-| React Lazy Load Image | Carga diferida de imagenes |
-| ESLint | Reglas de calidad de codigo |
+| React Lazy Load Image | Carga diferida de imágenes |
+| ESLint | Reglas de calidad de código |
 
 ---
 
-## 🚀 Inicio Rapido
+## 🚀 Inicio Rápido
 
 **Prerrequisitos**
 
 - Node.js 18+ (recomendado)
 - npm 9+ o pnpm/yarn
 
-**Instalacion**
+**Instalación**
 
 ```bash
 npm install
@@ -102,7 +102,7 @@ npm install
 npm run dev
 ```
 
-**Build de produccion**
+**Build de producción**
 
 ```bash
 npm run build
@@ -123,7 +123,7 @@ npm run preview
 - SPA con rutas cliente y layout compartido
 - Estado global por Context API
 - Persistencia local con `localStorage` para carrito y wishlist
-- Data statica en `src/data/db.js` (mock de catalogo)
+- Data estática en `src/data/db.js` (mock de catálogo)
 
 **Flujo de datos (ASCII)**
 
@@ -134,7 +134,7 @@ Usuario
 Router (React Router)
   |
   v
-Paginas (Home, Productos, Checkout, etc.)
+Páginas (Home, Productos, Checkout, etc.)
   |
   v
 Componentes UI (Cards, Cart, Navbar, Footer)
@@ -160,30 +160,30 @@ localStorage    src/data/db.js
 
 ```text
 C:\Users\Asus\Desktop\09-Cactus-Front
-├── public
-│   ├── category
-│   ├── icons
-│   ├── products
-│   └── hero.jpg
-├── src
-│   ├── components
-│   ├── context
-│   ├── data
-│   ├── helpers
-│   ├── pages
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── index.html
-├── tailwind.config.js
-├── postcss.config.js
-├── vite.config.js
-└── package.json
+|-- public
+|   |-- category
+|   |-- icons
+|   |-- products
+|   `-- hero.jpg
+|-- src
+|   |-- components
+|   |-- context
+|   |-- data
+|   |-- helpers
+|   |-- pages
+|   |-- App.jsx
+|   |-- index.css
+|   `-- main.jsx
+|-- index.html
+|-- tailwind.config.js
+|-- postcss.config.js
+|-- vite.config.js
+`-- package.json
 ```
 
 ---
 
-## 🧩 Componentes / Modulos Principales
+## 🧩 Componentes / Módulos Principales
 
 **Contexto**
 
@@ -191,20 +191,20 @@ C:\Users\Asus\Desktop\09-Cactus-Front
 
 **Componentes clave**
 
-- `src/components/Navbar.jsx`: navegacion principal, accesos rapidos y menu.
+- `src/components/Navbar.jsx`: navegación principal, accesos rápidos y menú.
 - `src/components/Cart.jsx`: mini carrito con resumen y CTA al checkout.
-- `src/components/Cards.jsx`: tarjeta de producto reutilizable para catalogo y destacados.
+- `src/components/Cards.jsx`: tarjeta de producto reutilizable para catálogo y destacados.
 - `src/components/Productos.jsx`: grilla, filtros, paginado y ordenamiento.
-- `src/components/WishlistMenu.jsx`: lista de favoritos y acciones rapidas.
+- `src/components/WishlistMenu.jsx`: lista de favoritos y acciones rápidas.
 - `src/components/Footer.jsx`: enlaces legales, ayuda y redes.
 - `src/components/WhatsApp.jsx`: acceso directo a soporte.
 
-**Paginas**
+**Páginas**
 
-- `src/pages/Home.jsx`: hero, destacados, categorias y promociones.
+- `src/pages/Home.jsx`: hero, destacados, categorías y promociones.
 - `src/pages/Checkout.jsx`: formulario completo de compra y resumen.
-- `src/pages/Login.jsx`: inicio de sesion con validaciones.
-- `src/pages/Registro.jsx`: alta de cuenta con terminos.
+- `src/pages/Login.jsx`: inicio de sesión con validaciones.
+- `src/pages/Registro.jsx`: alta de cuenta con términos.
 - `src/pages/Contacto.jsx`: formulario de contacto con toast.
 - `src/pages/Deseos.jsx`: wishlist detallada.
 - `src/pages/Ofertas.jsx`: landing de promos.
@@ -215,23 +215,23 @@ C:\Users\Asus\Desktop\09-Cactus-Front
 
 ## 🧪 Validaciones
 
-- Formularios con `react-hook-form` y validacion en tiempo real.
-- Login y registro: email valido, minimos de contrasena y aceptacion de terminos.
-- Checkout: datos personales, direccion, envio, pago y aceptacion de terminos.
-- Contacto: nombre, email, telefono y mensaje con feedback visual.
+- Formularios con `react-hook-form` y validación en tiempo real.
+- Login y registro: email válido, mínimos de contraseña y aceptación de términos.
+- Checkout: datos personales, dirección, envío, pago y aceptación de términos.
+- Contacto: nombre, email, teléfono y mensaje con feedback visual.
 
 ---
 
 ## 🔌 API Integration / Endpoints
 
-Este proyecto actualmente usa datos locales desde `src/data/db.js`. La integracion con API esta preparada para ser incorporada.
+Este proyecto actualmente usa datos locales desde `src/data/db.js`. La integración con API está preparada para ser incorporada.
 
-| Metodo | Endpoint | Uso | Estado |
+| Método | Endpoint | Uso | Estado |
 | --- | --- | --- | --- |
 | GET | `/api/products` | Listado de productos | Pendiente |
 | GET | `/api/products/:id` | Detalle de producto | Pendiente |
 | POST | `/api/checkout` | Crear orden | Pendiente |
-| POST | `/api/auth/login` | Autenticacion | Pendiente |
+| POST | `/api/auth/login` | Autenticación | Pendiente |
 
 **Modelo base (TypeScript, referencia)**
 
@@ -255,7 +255,7 @@ type Product = {
 
 ## 📜 Scripts Disponibles
 
-| Script | Descripcion |
+| Script | Descripción |
 | --- | --- |
 | `npm run dev` | Levanta el entorno local con HMR |
 | `npm run build` | Genera build optimizado |
@@ -268,7 +268,7 @@ type Product = {
 
 Este frontend funciona sin variables obligatorias. Si se integra un backend, se recomienda definir una base URL.
 
-| Variable | Descripcion | Requerida | Ejemplo |
+| Variable | Descripción | Requerida | Ejemplo |
 | --- | --- | --- | --- |
 | `VITE_API_BASE_URL` | URL base del API | No | `https://api.tu-dominio.com` |
 
@@ -294,7 +294,7 @@ VITE_API_BASE_URL=https://api.tu-dominio.com
 3. Configurar el directorio de salida: `dist`.
 4. Definir variables de entorno si aplica.
 
-**Ejemplo de configuracion (Vercel)**
+**Ejemplo de configuración (Vercel)**
 
 ```text
 Build Command: npm run build
@@ -304,40 +304,40 @@ Install Command: npm install
 
 ---
 
-## 📖 Guias de Uso
+## 📖 Guías de Uso
 
-**Explorar catalogo**
+**Explorar catálogo**
 
-1. Ir a `Productos` desde el menu principal.
-2. Aplicar filtros de categoria, marca, color o rango de precio.
-3. Ordenar resultados y navegar por paginas.
+1. Ir a `Productos` desde el menú principal.
+2. Aplicar filtros de categoría, marca, color o rango de precio.
+3. Ordenar resultados y navegar por páginas.
 
 **Agregar al carrito**
 
 1. Seleccionar un producto.
-2. Usar el boton de compra para agregarlo.
+2. Usar el botón de compra para agregarlo.
 3. Ajustar cantidades desde el mini carrito.
 
 **Finalizar compra**
 
 1. Ir a `Checkout`.
-2. Completar datos personales y direccion.
-3. Elegir envio y metodo de pago.
+2. Completar datos personales y dirección.
+3. Elegir envío y método de pago.
 4. Revisar el resumen y confirmar.
 
 **Contactar soporte**
 
 1. Entrar a `Contacto`.
 2. Completar el formulario.
-3. Enviar y esperar el toast de confirmacion.
+3. Enviar y esperar el toast de confirmación.
 
 ---
 
-## 🧩 Personalizacion / Extension
+## 🧩 Personalización / Extensión
 
-- Reemplazar el catalogo en `src/data/db.js` por una API real.
+- Reemplazar el catálogo en `src/data/db.js` por una API real.
 - Extender `ShopContext` para manejar cupones, impuestos o stock en tiempo real.
-- Crear nuevas categorias y colecciones en `public/category`.
+- Crear nuevas categorías y colecciones en `public/category`.
 - Ajustar el diseño en `src/index.css` y componentes con Tailwind.
 
 ---
@@ -359,7 +359,7 @@ Este proyecto se distribuye bajo la licencia `MIT`. Reemplaza este texto si nece
 
 <div align="center">
 
-Hecho con dedicacion para experiencias de compra rapidas y claras.  
+Hecho con dedicación para experiencias de compra rápidas y claras.  
 [LinkedIn](https://www.linkedin.com/in/augustovillegas/) · [Volver arriba](#-cactus---ecommerce-tecnologico)
 
 </div>
